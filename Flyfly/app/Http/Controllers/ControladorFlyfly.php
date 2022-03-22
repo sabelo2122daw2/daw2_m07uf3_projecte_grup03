@@ -12,10 +12,30 @@ class ControladorFlyfly extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexUsuaris()
     {
-        //
+        $usuaris = usuaris::all();
+        return view('index', compact('usuaris'));
     }
+
+    public function indexVols()
+    {
+        $vols = vols::all();
+        return view('index', compact('vols'));
+    }
+
+    public function indexReservas()
+    {
+        $reservas = reservas::all();
+        return view('index', compact('reservas'));
+    }
+
+    public function indexClients()
+    {
+        $clients = clients::all();
+        return view('index', compact('clients'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +44,7 @@ class ControladorFlyfly extends Controller
      */
     public function create()
     {
-        //
+        return view('welcome');
     }
 
     /**
