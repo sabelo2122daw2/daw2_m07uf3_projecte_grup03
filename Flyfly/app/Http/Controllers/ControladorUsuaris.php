@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Usuaris;
 class ControladorUsuaris extends Controller
 {
     /**
@@ -13,8 +13,8 @@ class ControladorUsuaris extends Controller
      */
     public function index()
     {
-        $usuaris = usuaris::all();
-        return view('index', compact('usuaris'));
+        $usuaris = Usuaris::all();
+        return view('indexUsuaris', compact('usuaris'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ControladorUsuaris extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function CreaUsuari(Request $request)
+    public function store(Request $request)
     {
         $nouUsuari = $request->validate([
             'nom' => 'required|max:255',
@@ -44,7 +44,7 @@ class ControladorUsuaris extends Controller
             'HoraEntrada' => 'required|date_format:H:i',
             'HoraSortida' => 'required|date_format:H:i',
             ]);
-            $usuaris = usuaris::create($nouUsuari);
+            $usuari = Usuaris::create($nouUsuari);
             return redirect('/usuaris')->with('completed', 'Usuari creat!');
             
     }
@@ -91,7 +91,7 @@ class ControladorUsuaris extends Controller
             'HoraEntrada' => 'required|date_format:H:i',
             'HoraSortida' => 'required|date_format:H:i',
         ]);
-        Usuaris::whereId($id)->update($dades);
+        Usuaris::whereId('id', $id)->update($dades);
         return redirect('/usuaris')->with('completed', 'Usuari actualitzat');
     }
 

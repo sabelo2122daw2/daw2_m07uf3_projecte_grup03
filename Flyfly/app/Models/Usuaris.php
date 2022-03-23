@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuaris extends Model
 {
+    public $timestamps = false;
+
     use HasFactory;
     protected $fillable = [
        'nom',
