@@ -15,15 +15,15 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
 	    $table->string('Passaport_client')->primary();
-	    $table->string('Nom i cognoms');
+	    $table->string('Nom_cognoms');
 	    $table->integer('Edat');
 	    $table->integer('Telefon');
 	    $table->string('Adreça');
 	    $table->string('Ciutat');
 	    $table->string('Pais');
 	    $table->string('Email');
-        $table->enum('Tipus de tajeta', ['Debit', 'Credit']);
-	    $table->integer('Numero de tajeta');
+        $table->enum('Tipus_tajeta', ['Debit', 'Credit']);
+	    $table->integer('Numero_tajeta');
         });
     }
 

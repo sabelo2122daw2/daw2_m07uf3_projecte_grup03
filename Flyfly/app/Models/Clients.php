@@ -11,17 +11,17 @@ class Clients extends Model
     use Enums;
     protected $fillable = [
         'Passaport_client',
-        'Nom i cognoms',
+        'Nom_cognoms',
         'Edat',
         'Telefon',
         'Adreça',
         'Ciutat',
         'Pais',
         'Email',
-        'Numero de tajeta',
+        'Numero_tajeta',
     ];
     
     protected $enumStatuses = [
-        'Tipus de tajeta' => ['Debit', 'Credit'],
+        'Tipus_tajeta' => ['Debit', 'Credit'],
     ];
 }

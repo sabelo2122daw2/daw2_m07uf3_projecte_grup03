@@ -20,8 +20,8 @@ class CreateUsuarisTable extends Migration
 	    $table->primary('email');
 	    $table->string('contrasenya');
 	    $table->boolean('tipus');
-	    $table->date('HoraEntrada');
-	    $table->date('HoraSortida');
+	    $table->time('HoraEntrada');
+	    $table->time('HoraSortida');
         });
     }
 
