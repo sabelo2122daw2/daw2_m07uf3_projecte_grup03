@@ -32,8 +32,8 @@
             <td>{{$usu->HoraEntrada}}</td>
             <td>{{$usu->HoraSortida}}</td>
             <td class="text-left">
-                <a href="{{ route('usuaris.edit', $usu->nom)}}" class="btn btn-success btn-sm">Edita</a>
-                <form action="{{ route('usuaris.destroy', $usu->nom)}}" method="post" style="display: inline-block">
+                <a href="{{ route('usuaris.edit', $usu->email)}}" class="btn btn-success btn-sm">Edita</a>
+                <form action="{{ route('usuaris.destroy', $usu->email)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>

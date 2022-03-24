@@ -7,20 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vols extends Model
 {
+   public $timestamps = false;
+
     use HasFactory;
-    use Enums
+   // use Enums;
     protected $fillable = [
       'codi_unic',
       'codi_model',
       'ciutatOrigen',
       'ciutatDesti',
       'TerminalOrigen',
-      'TerminalDesti',
+      'terminalDesti',
       'DataSortida',
       'DataArribada',
       'Classe'
    ];
    protected $enumStatuses = [
       'Classe' => ['Turista', 'Bussiness', 'Primera'],
-   ]
+   ];
 }

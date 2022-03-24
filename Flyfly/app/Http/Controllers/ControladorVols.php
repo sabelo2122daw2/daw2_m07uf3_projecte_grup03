@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vols;
 
 class ControladorVols extends Controller
 {
@@ -13,8 +14,8 @@ class ControladorVols extends Controller
      */
     public function index()
     {
-        $vols = vols::all();
-        return view('index', compact('vols'));
+        $vols = Vols::all();
+        return view('indexVols', compact('vols'));
     }
 
     /**
@@ -33,7 +34,7 @@ class ControladorVols extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function CreaVols(Request $request)
+    public function store(Request $request)
     {
         $nouVol = $request->validate([
             'codi_unic' => 'required|max:255',
@@ -46,7 +47,7 @@ class ControladorVols extends Controller
             'DataArribada' => 'required|date',
             'Classe' => 'required|max:255',   
         ]);
-            $vols = vols::create($nouVol);
+            $vols = Vols::create($nouVol);
             return redirect('/vols')->with('completed', 'Vol creat!');
             
     }

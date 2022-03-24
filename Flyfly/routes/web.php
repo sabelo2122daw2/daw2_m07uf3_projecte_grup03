@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('usuaris', ControladorUsuaris::class);
+Route::resource('vols', ControladorVols::class);
 

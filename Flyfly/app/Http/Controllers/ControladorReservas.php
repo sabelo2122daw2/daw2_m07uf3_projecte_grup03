@@ -33,10 +33,10 @@ class ControladorReservas extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function CreaReserva(Request $request)
+    public function store(Request $request)
     {
         $nouReserva = $request->validate([
-            'Passaport_client' => 'required|max:255',
+            'Passaport_client' => 'required|unique:reservas',
             'codi_unic' => 'required|max:255',
             'localitzador' => 'required|max:255',
             'NumAsiento' => 'required|max:255',
