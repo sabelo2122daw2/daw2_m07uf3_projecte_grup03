@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h1>Aplicació d'administració d'usuaris</h1>
+<h1>Aplicació d'administració de reservas</h1>
 <div class="card mt-5">
   <div class="card-header">
-    Afegeix un nou Usuari
+    Afegeix una nova reserva
   </div>
 
   <div class="card-body">
@@ -18,7 +18,7 @@
         </ul>
       </div>
     @endif
-      <form method="post" action="{{ route('usuaris.store') }}">
+      <form method="post" action="{{ route('reservas.store') }}">
         @csrf   
         <div class="form-group">  
               <label for="Passaport_client">Passaport_client</label>
@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
               <label for="codi_unic">codi_unic</label>
-              <input type="number" class="form-control" name="codi_unic"/>
+              <input type="text" class="form-control" name="codi_unic"/>
           </div>
           <div class="form-group">
               <label for="localitzador">localitzador</label>
@@ -50,25 +50,27 @@
           </div>
           <div class="form-group">
               <label for="asseguranca">asseguranca</label>
-              <select type="number" class="form-control" name="asseguranca"/>
-                <option value="Franquícia fins a 1000 Euros">Franquícia fins a 1000 Euros</option>
-                <option value="Franquícia fins a 500 Euros">Franquícia fins a 500 Euros</option>
-                <option value="Sense franquícia">Sense franquícia</option>
-            </div>
+              <select class="form-control" name="asseguranca">
+                <option value="1000">Franquícia fins a 1000 Euros</option>
+                <option value="500">Franquícia fins a 500 Euros</option>
+                <option value="Sense">Sense franquícia</option>
+              </select>
+              </div>
           <div class="form-group">
               <label for="PreuVol">PreuVol</label>
               <input type="number" class="form-control" name="PreuVol"/>
           </div>
           <div class="form-group">
               <label for="Checking">Checking</label>
-              <select type="text" class="form-control" name="Checking"/>
-              <option value="on-line">on-line</option>
+              <select class="form-control" name="Checking">
+                <option value="on-line">on-line</option>
                 <option value="mostrador">mostrador</option>
                 <option value="quiosc">quiosc</option>
+                </select>
             </div>
           <button type="submit" class="btn btn-block btn-primary">Envia</button>
       </form>
   </div>
 </div>
-<br><a href="{{ url('usuaris') }}">Accés directe a la Llista d'usuaris</a>
+<br><a href="{{ url('reservas') }}">Accés directe a la Llista de reservas</a>
 @endsection

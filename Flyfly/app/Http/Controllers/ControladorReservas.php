@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reserva;
 
 class ControladorReservas extends Controller
 {
@@ -14,7 +15,7 @@ class ControladorReservas extends Controller
     public function index()
     {
         $reservas = Reserva::all();
-        return view('index', compact('reservas'));
+        return view('indexReservas', compact('reservas'));
     }
 
     /**
@@ -36,7 +37,7 @@ class ControladorReservas extends Controller
     public function store(Request $request)
     {
         $nouReserva = $request->validate([
-            'Passaport_client' => 'required|unique:reservas',
+            'Passaport_client' => 'required|max:255',
             'codi_unic' => 'required|max:255',
             'localitzador' => 'required|max:255',
             'NumAsiento' => 'required|max:255',
@@ -87,8 +88,8 @@ class ControladorReservas extends Controller
     public function update(Request $request, $id)
     {
         $dades = $request->validate([
-            'Passaport_client' => 'required|max:255',
-            'codi_unic' => 'required|max:255',
+            'Passaport_client' => 'required|reference:clientss',
+            'codi_unic' => 'required|reference:vols',
             'localitzador' => 'required|max:255',
             'NumAsiento' => 'required|max:255',
             'EquipatgeMa' => 'required|max:255',

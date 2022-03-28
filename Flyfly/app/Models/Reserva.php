@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
-    use Enums;
+   // use Enums;
+    public $timestamps = false;
     protected $fillable = [
        'Passaport_client',
        'codi_unic',
@@ -25,5 +26,5 @@ class Reserva extends Model
    protected $enumStatuses = [
     'asseguranca' => ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia'],
     'Checking'=> ['on-line', 'mostrador', 'quiosc'],
-   ]
+   ];
 }
