@@ -50,7 +50,7 @@
           </div>
           <div class="form-group">
               <label for="asseguranca">asseguranca</label>
-              <select class="form-control" name="asseguranca">
+              <select type="text" class="form-control" name="asseguranca">
                 <option value="1000">Franquícia fins a 1000 Euros</option>
                 <option value="500">Franquícia fins a 500 Euros</option>
                 <option value="Sense">Sense franquícia</option>

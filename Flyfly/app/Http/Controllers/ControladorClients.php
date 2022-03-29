@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Clients;
 
 class ControladorClients extends Controller
 {
@@ -14,7 +15,7 @@ class ControladorClients extends Controller
     public function index()
     {
         $clients = Clients::all();
-        return view('index', compact('clients'));
+        return view('indexClients', compact('clients'));
     }
 
     /**
@@ -33,7 +34,7 @@ class ControladorClients extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function CreaClient(Request $request)
+    public function store(Request $request)
     {
         $nouClient = $request->validate([
             'Passaport_client' => 'required|max:255',
@@ -47,7 +48,7 @@ class ControladorClients extends Controller
             'Tipus_tajeta' => 'required|max:255',   
             'Numero_tajeta' => 'required|max:255',   
         ]);
-            $vols = vols::create($nouVols);
+            $clients = Clients::create($nouClient);
             return redirect('/clients')->with('completed', 'Client creat!');
             
     }

@@ -60,7 +60,7 @@ class ControladorReservas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($Passaport_client)
     {
         //
     }
@@ -68,12 +68,12 @@ class ControladorReservas extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $Passaport_client
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($Passaport_client)
     {
-        $reservas = Reserva::findOrFail($id);
+        $reservas = Reserva::findOrFail($Passaport_client);
         return view('actualitza', compact('reservas'));
 
     }
@@ -82,10 +82,10 @@ class ControladorReservas extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $Passaport_client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $Passaport_client)
     {
         $dades = $request->validate([
             'Passaport_client' => 'required|reference:clientss',
@@ -99,7 +99,7 @@ class ControladorReservas extends Controller
             'PreuVol' => 'required|max:255',
             'Checking' => 'required|max:255',
         ]);
-        Reserva::whereId($id)->update($dades);
+        Reserva::whereId($Passaport_client)->update($dades);
         return redirect('/reservas')->with('completed', 'Reserva actualitzada');
     }
 
@@ -107,12 +107,12 @@ class ControladorReservas extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $Passaport_client
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($Passaport_client)
     {
-        $reservas = Reserva::findOrFail($id);
+        $reservas = Reserva::findOrFail($Passaport_client);
         $reservas->delete();
         return redirect('/reservas')->with('completed', 'Reserva esborrada');
     }

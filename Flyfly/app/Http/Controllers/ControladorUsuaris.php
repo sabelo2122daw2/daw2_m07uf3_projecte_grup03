@@ -58,8 +58,7 @@ class ControladorUsuaris extends Controller
      */
     public function show($email)
     {
-        $usuaris = Usuaris::findOrFail($email);
-        return view('actualitza', compact('usuaris'));
+        //
     }
 
     /**
@@ -70,7 +69,8 @@ class ControladorUsuaris extends Controller
      */
     public function edit($email)
     {
-        //
+        $usuaris = Usuaris::findOrFail($email);
+        return view('actualitza', compact('usuaris'));
     }
 
     /**
