@@ -51,9 +51,9 @@
           <div class="form-group">
               <label for="asseguranca">asseguranca</label>
               <select type="text" class="form-control" name="asseguranca">
-                <option value="1000">Franquícia fins a 1000 Euros</option>
-                <option value="500">Franquícia fins a 500 Euros</option>
-                <option value="Sense">Sense franquícia</option>
+                <option value="Franquícia fins a 1000 Euros">Franquícia fins a 1000 Euros</option>
+                <option value="Franquíca fins 500 Euros">Franquícia fins a 500 Euros</option>
+                <option value="Sense franquícia">Sense franquícia</option>
               </select>
               </div>
           <div class="form-group">
@@ -66,7 +66,7 @@
                 <option value="on-line">on-line</option>
                 <option value="mostrador">mostrador</option>
                 <option value="quiosc">quiosc</option>
-                </select>
+              </select>
             </div>
           <button type="submit" class="btn btn-block btn-primary">Envia</button>
       </form>

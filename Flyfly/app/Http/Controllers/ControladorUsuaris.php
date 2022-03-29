@@ -44,7 +44,7 @@ class ControladorUsuaris extends Controller
             'HoraEntrada' => 'required|date_format:H:i',
             'HoraSortida' => 'required|date_format:H:i',
             ]);
-            $usuari = Usuaris::create($nouUsuari);
+            $usuaris = Usuaris::create($nouUsuari);
             return redirect('/usuaris')->with('completed', 'Usuari creat!');
             
     }
