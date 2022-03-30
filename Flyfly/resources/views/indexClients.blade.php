@@ -50,5 +50,6 @@
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a>
+<br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a><br>
+<a href="{{ url('/') }}">Accés directe al menu principal</a>
 @endsection
