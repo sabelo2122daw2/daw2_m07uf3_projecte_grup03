@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Auth::routes();
 
 Route::resource('usuaris', ControladorUsuaris::class);
 Route::resource('vols', ControladorVols::class);

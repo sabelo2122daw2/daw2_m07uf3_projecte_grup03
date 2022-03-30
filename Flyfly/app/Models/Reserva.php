@@ -13,18 +13,18 @@ class Reserva extends Model
     protected $primaryKey = 'Passaport_client';
     public $incrementing = false;
     protected $fillable = [
-       'Passaport_client',
-       'codi_unic',
-       'localitzador',
-       'NumAsiento',
-       'EquipatgeMa',
-       'EquipatgeCabina',
-       'QuantitatEquipatge',
-       'asseguranca',
-       'PreuVol',
-       'Checking',
-   ];
-
+        'Passaport_client',
+        'codi_unic',
+        'localitzador',
+        'NumAsiento',
+        'EquipatgeMa',
+        'EquipatgeCabina',
+        'QuantitatEquipatge',
+        'asseguranca',
+        'PreuVol',
+        'Checking',
+    ];
+    
    protected $enumStatuses = [
     'asseguranca' => ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia'],
     'Checking'=> ['on-line', 'mostrador', 'quiosc'],

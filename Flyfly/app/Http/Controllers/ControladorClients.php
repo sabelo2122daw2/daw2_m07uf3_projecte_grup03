@@ -18,6 +18,7 @@ class ControladorClients extends Controller
         return view('indexClients', compact('clients'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
