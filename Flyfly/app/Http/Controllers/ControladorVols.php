@@ -73,7 +73,7 @@ class ControladorVols extends Controller
     public function edit($id)
     {
         $vols = Vols::findOrFail($id);
-        return view('actualitza', compact('vols'));
+        return view('actualitzaVols', compact('vols'));
     }
 
     /**
@@ -96,8 +96,8 @@ class ControladorVols extends Controller
             'DataArribada' => 'required|date',
             'Classe' => 'required|max:255',   
         ]);
-        Vols::whereId($id)->update($dades);
-        return redirect('/vols')->with('completed', 'Vols actualitzats');
+        Vols::where('codi_unic', $id)->update($dades);
+        return redirect('/vols')->with('completed', 'Vol actualitzats');
     }
 
     /**

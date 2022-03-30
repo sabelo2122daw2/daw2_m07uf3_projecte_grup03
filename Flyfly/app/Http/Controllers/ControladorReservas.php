@@ -44,7 +44,7 @@ class ControladorReservas extends Controller
             'EquipatgeMa' => 'required|max:255',
             'EquipatgeCabina' => 'required|max:255',
             'QuantitatEquipatge' => 'required|max:255',
-            'asseguranca' => 'required|max:255',
+            'asseguranc a' => 'required|max:255',
             'PreuVol' => 'required|max:255',
             'Checking' => 'required|max:255',
    
@@ -57,12 +57,12 @@ class ControladorReservas extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $Passaport_client
      * @return \Illuminate\Http\Response
      */
     public function show($Passaport_client)
     {
-        //
+        return view("indexReservas");
     }
 
     /**

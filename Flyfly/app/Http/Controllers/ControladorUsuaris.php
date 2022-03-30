@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuaris;
+
 class ControladorUsuaris extends Controller
 {
     /**
@@ -56,7 +57,7 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($email)
+    public function show($id)
     {
         //
     }
@@ -67,10 +68,10 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($email)
+    public function edit($id)
     {
-        $usuaris = Usuaris::findOrFail($email);
-        return view('actualitza', compact('usuaris'));
+        $usuaris = Usuaris::findOrFail($id);
+        return view('actualitzaUsuaris', compact('usuaris'));
     }
 
     /**
@@ -80,7 +81,7 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $email)
+    public function update(Request $request, $id)
     {
         $dades = $request->validate([
             'nom' => 'required|max:255',
@@ -91,7 +92,7 @@ class ControladorUsuaris extends Controller
             'HoraEntrada' => 'required|date_format:H:i',
             'HoraSortida' => 'required|date_format:H:i',
         ]);
-        Usuaris::whereId('email', $email)->update($dades);
+        Usuaris::where('email', $id)->update($dades);
         return redirect('/usuaris')->with('completed', 'Usuari actualitzat');
     }
 
@@ -102,9 +103,9 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($email)
+    public function destroy($id)
     {
-        $usuaris = Usuaris::findOrFail($email);
+        $usuaris = Usuaris::findOrFail($id);
         $usuaris->delete();
         return redirect('/usuaris')->with('completed', 'Usuari esborrat');
     }

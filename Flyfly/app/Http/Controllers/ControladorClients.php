@@ -72,8 +72,8 @@ class ControladorClients extends Controller
      */
     public function edit($id)
     {
-        $clients = Clients::findOrFail($id);
-        return view('actualitza', compact('clients'));
+        $client = Clients::findOrFail($id);
+        return view('actualitzaClients', compact('client'));
     }
 
     /**
@@ -97,7 +97,7 @@ class ControladorClients extends Controller
             'Tipus_tajeta' => 'required|max:255',   
             'Numero_tajeta' => 'required|max:255', 
             ]);
-            Clients::whereId($id)->update($dades);
+            Clients::where('Passaport_client', $id)->update($dades);
             return redirect('/clients')->with('completed', 'Client actualitzat');
     }
 

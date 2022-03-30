@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vols extends Model
 {
    public $timestamps = false;
+   protected $primaryKey = 'codi_unic';
+   public $incrementing = false;
 
     use HasFactory;
    // use Enums;
@@ -20,7 +22,7 @@ class Vols extends Model
       'terminalDesti',
       'DataSortida',
       'DataArribada',
-      'Classe'
+      'Classe',
    ];
    protected $enumStatuses = [
       'Classe' => ['Turista', 'Bussiness', 'Primera'],

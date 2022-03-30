@@ -44,7 +44,7 @@
         FALTA TIPUS
         -->
            <div class="form-group">
-              <label for="tipus">tipus</label>
+              <label for="tipus">tipus (0:treballador, 1:cap)</label>
               <input type="text" class="form-control" name="tipus"/>
           </div>
           <div class="form-group">

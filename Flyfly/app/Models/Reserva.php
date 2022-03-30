@@ -10,6 +10,8 @@ class Reserva extends Model
     use HasFactory;
    // use Enums;
     public $timestamps = false;
+    protected $primaryKey = 'Passaport_client';
+    public $incrementing = false;
     protected $fillable = [
        'Passaport_client',
        'codi_unic',

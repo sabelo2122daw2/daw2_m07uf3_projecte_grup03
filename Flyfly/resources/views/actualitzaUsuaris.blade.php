@@ -21,7 +21,7 @@
         <form method="post" action="{{ route('usuaris.update', $usuaris->email) }}">
             <div class="form-group">
                 @csrf
-                @method('PATCH')
+                @method('PUT')
                 <label for="nom">Nom</label>
                 <input type="text" class="form-control" name="nom" value="{{ $usuaris->nom }}" />
             </div>
@@ -31,11 +31,11 @@
             </div>
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="text" class="form-control" name="email" value="{{ $usuaris->email }}" />
+                <input type="email" class="form-control" name="email" value="{{ $usuaris->email }}" />
             </div>
             <div class="form-group">
                 <label for="contrasenya">contrasenya</label>
-                <input type="text" class="form-control" name="contrasenya" value="{{ $usuaris->contrasenya }}" />
+                <input type="password" class="form-control" name="contrasenya" value="{{ $usuaris->contrasenya }}" />
             </div>
             <div class="form-group">
                 <label for="tipus">tipus</label>
@@ -43,16 +43,16 @@
             </div>
             <div class="form-group">
                 <label for="HoraEntrada">Hora Entrada</label>
-                <input type="text" class="form-control" name="HoraEntrada" value="{{ $usuaris->HoraEntrada }}" />
+                <input type="time" class="form-control" name="HoraEntrada" value="{{ $usuaris->HoraEntrada }}" />
             </div>
             <div class="form-group">
                 <label for="HoraSortida">Hora Sortida</label>
-                <input type="text" class="form-control" name="HoraSortida" value="{{ $usuaris->HoraSortida }}" />
+                <input type="time" class="form-control" name="HoraSortida" value="{{ $usuaris->HoraSortida }}"/>
             </div>
 
             <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
         </form>
     </div>
 </div>
-<br><a href="{{ url('usuaris') }}">Accés directe a la Llista d'usuaris</a
+<br><a href="{{ url('usuaris') }}">Accés directe a la Llista d'usuaris</a>
 @endsection

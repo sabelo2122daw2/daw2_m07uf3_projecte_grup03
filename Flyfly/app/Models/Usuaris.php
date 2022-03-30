@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Usuaris extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'email';
+    public $incrementing = false;
 
     use HasFactory;
     protected $fillable = [
