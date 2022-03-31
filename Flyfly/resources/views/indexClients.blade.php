@@ -43,6 +43,8 @@
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
+                    <!-- boton de descargar pdf -->
+                    <a href="{{ route('clients.pdf', $cli->Passaport_client)}}" class="btn btn-primary btn-sm">PDF</a>
                   </form>
             </td>
         </tr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clients;
+use PDF;
 
 class ControladorClients extends Controller
 {
@@ -113,5 +114,17 @@ class ControladorClients extends Controller
         $clients = Clients::findOrFail($id);
         $clients->delete();
         return redirect('/clients')->with('completed', 'Client esborrat');
+    }
+
+    public function pdf($id){
+        $clients = Clients::findOrFail($id);
+        if ($clients){
+        $passaport = $clients->Passaport_client;
+            $pdf = \PDF::loadView('pdfClients', compact('passaport'));
+            $pdf ->setPaper('A3', 'landscape');
+            return $pdf->download('client.pdf');
+        }
+        return view('pdf', compact('clients'));
+        
     }
 }

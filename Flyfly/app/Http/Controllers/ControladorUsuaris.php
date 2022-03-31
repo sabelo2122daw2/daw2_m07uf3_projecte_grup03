@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuaris;
+use PDF;
 
 class ControladorUsuaris extends Controller
 {
@@ -108,5 +109,17 @@ class ControladorUsuaris extends Controller
         $usuaris = Usuaris::findOrFail($id);
         $usuaris->delete();
         return redirect('/usuaris')->with('completed', 'Usuari esborrat');
+    }
+
+    public function pdf($id){
+        $usuaris = Usuaris::findOrFail($id);
+        if ($usuaris) {
+        $email = $usuaris->email;
+            $pdf = PDF::loadView('pdfUsuaris', compact('email'));
+            $pdf ->setPaper('A3', 'landscape');
+            return $pdf->download('usuaris.pdf');
+        }
+        
+        return view('pdf', compact('usuaris'));
     }
 }

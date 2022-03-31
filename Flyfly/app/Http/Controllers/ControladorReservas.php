@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use PDF;
 
 class ControladorReservas extends Controller
 {
@@ -115,5 +116,17 @@ class ControladorReservas extends Controller
         $reservas = Reserva::findOrFail($id);
         $reservas->delete();
         return redirect('/reservas')->with('completed', 'Reserva esborrada');
+    }
+
+    public function pdf($id){
+        $reservas = Reserva::findOrFail($id);
+        if ($reservas) {
+        $passaport = $reservas->Passaport_client;
+            $pdf = PDF::loadView('pdfReservas', compact('passaport'));
+            $pdf ->setPaper('A3', 'landscape');
+            return $pdf->download('reservas.pdf');
+        }
+        
+        return view('pdf', compact('reservas'));
     }
 }

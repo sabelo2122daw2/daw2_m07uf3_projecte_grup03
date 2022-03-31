@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vols;
+use PDF;
 
 class ControladorVols extends Controller
 {
@@ -17,6 +18,8 @@ class ControladorVols extends Controller
         $vols = Vols::all();
         return view('indexVols', compact('vols'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -111,5 +114,17 @@ class ControladorVols extends Controller
         $vols = Vols::findOrFail($id);
         $vols->delete();
         return redirect('/vols')->with('completed', 'Vol esborrat');
+    }
+
+    public function pdf($id){
+        $vols = Vols::findOrFail($id);
+        if ($vols) {
+        $codi = $vols->codi_unic;
+            $pdf = PDF::loadView('pdfVols', compact('codi'));
+            $pdf ->setPaper('A4', 'landscape');
+            return $pdf->download('vols.pdf');
+        }
+        
+        return view('pdf', compact('vols'));
     }
 }

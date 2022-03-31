@@ -37,6 +37,8 @@
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
+                    <!-- boton de descargar pdf -->
+                    <a href="{{ route('usuaris.pdf', $usu->email)}}" class="btn btn-primary btn-sm">PDF</a>
                   </form>
             </td>
         </tr>

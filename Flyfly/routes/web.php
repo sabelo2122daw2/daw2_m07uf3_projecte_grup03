@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 // Auth::routes();
+Route::get('/vols/{id}/pdf', 'ControladorVols@pdf')->name('vols.pdf');
+Route::get('/reservas/{id}/pdf', 'ControladorReservas@pdf')->name('reservas.pdf');
+Route::get('/clients/{id}/pdf', 'ControladorClients@pdf')->name('clients.pdf');
+Route::get('/usuaris/{id}/pdf', 'ControladorUsuaris@pdf')->name('usuaris.pdf');
 
 Route::resource('usuaris', ControladorUsuaris::class);
 Route::resource('vols', ControladorVols::class);

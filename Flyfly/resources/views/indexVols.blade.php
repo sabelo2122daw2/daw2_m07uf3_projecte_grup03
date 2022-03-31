@@ -37,10 +37,13 @@
             <td>{{$vol->Classe}}</td>
             <td class="text-left">
                 <a href="{{ route('vols.edit', $vol->codi_unic)}}" class="btn btn-success btn-sm">Edita</a>
+                
                 <form action="{{ route('vols.destroy', $vol->codi_unic)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
+                    <!-- boton de descargar pdf -->
+                    <a href="{{ route('vols.pdf', $vol->codi_unic)}}" class="btn btn-primary btn-sm">PDF</a>
                   </form>
             </td>
         </tr>
