@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuaris;
 use PDF;
+use hash;
 
 class ControladorUsuaris extends Controller
 {
@@ -46,8 +47,19 @@ class ControladorUsuaris extends Controller
             'HoraEntrada' => 'required|date_format:H:i',
             'HoraSortida' => 'required|date_format:H:i',
             ]);
+            //$usuaris->contrasenya = Hash::make($usuaris->contrasenya);
             $usuaris = Usuaris::create($nouUsuari);
             return redirect('/usuaris')->with('completed', 'Usuari creat!');
+
+            //codificar la contraseña en hash
+            //$usuaris->contrasenya = Hash::make($usuaris->contrasenya);
+            //$usuaris->save();
+
+
+
+            // $usuaris->contrasenya = bcrypt($usuaris->contrasenya);
+            // $usuaris->save();
+
             
     }
 

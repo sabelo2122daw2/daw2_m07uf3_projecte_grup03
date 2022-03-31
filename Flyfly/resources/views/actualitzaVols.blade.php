@@ -57,7 +57,7 @@
               <label for="Classe">Classe</label>
               <select class="form-control" name="Classe">
               <option value="Turista">Turista</option> 
-              <option value="Bussiness">Bussiness</option> 
+              <option value="Bussines">Bussiness</option> 
               <option value="Primera">Primera</option> 
               </select>
           </div>
