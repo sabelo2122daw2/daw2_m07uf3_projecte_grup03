@@ -16,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('login');
+});
 
 // Auth::routes();
 Route::get('/vols/{id}/pdf', 'ControladorVols@pdf')->name('vols.pdf');
 Route::get('/reservas/{id}/pdf', 'ControladorReservas@pdf')->name('reservas.pdf');
 Route::get('/clients/{id}/pdf', 'ControladorClients@pdf')->name('clients.pdf');
 Route::get('/usuaris/{id}/pdf', 'ControladorUsuaris@pdf')->name('usuaris.pdf');
+
+Route::get('/autentica','LoginControlador@autentica')->name('autenticacio');
 
 Route::resource('usuaris', ControladorUsuaris::class);
 Route::resource('vols', ControladorVols::class);
